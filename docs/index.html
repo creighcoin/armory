@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Creigh Coin Arsenal</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container" style="width: 900px;">
+      <div class="row">
+        <div class="col-lg-12">
+          <h1 class="text-center">Creigh Coin Arsenal</h1>
+          <p class="text-center">Introducing "Creigh Coin" (CC), Coin price is <span id="coin-price"></span> ETH.</p>
+          <hr/>
+          <br/>
+        </div>
+        <div id="loader">
+          <p class="text-center">Loading...</p>
+        </div>
+        <div id="content" class="text-center" style="display: none;">
+          <p>
+            <br>
+            You currently have
+            <span id="accountBalance"></span>&nbsp;ETH and
+            <span id="cc-balance"></span>&nbsp;CC.
+          </p>
+          <br>
+          <form onSubmit="App.buyCoins(); return false;" role="form">
+            <div class="form-group">
+              <div class="input-group">
+                <input id="numberOfCoins" class="form-control input-lg" type="number" name="number" value="1" min="1" pattern="[0-9]"></input>
+                <span class="input-group-btn">
+                  <button type="submit" class="btn btn-primary btn-lg">Buy Coins</button>
+                </span>
+              </div>
+            </div>
+          </form>
+          <br>
+          <div class="progress">
+            <div id="progress" class="progress-bar progress-bar-striped active" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          <p><span id="coinsSold"></span> coins taken from the arsenal
+            <br>
+            <svg height="2" width="250">
+              <line x1="0" y1="0" x2="250" y2="0" style="stroke:rgb(0,0,0);stroke-width:2" />
+            </svg>
+            <br>
+            <span id="coinsAvailable"></span> coins originally in the arsenal
+          </p>
+          <hr>
+          <p id="accountAddress"></p>
+          <br>
+        </div>
+        <div>
+          <a href="https://rinkeby.etherscan.io/token/0x8db91622d37ed433a02b68039ec54bc4bfadf607#balances">Top Accounts</a>
+          <br>
+          <a href="https://metamask.io/">Need Metamask to create and manage an Ethereum account?</a>
+          <br>
+          <a href="https://faucet.rinkeby.io/">Need ETH to buy more CC?</a>
+          <br>
+          <br>
+          <p>Notes: <br>
+             1. You can configure Metamask to display your Creigh balance by clicking: <br>
+             &nbsp;&nbsp;&nbsp;&nbsp;Hamburger Menu -> Add Token -> Custom -> Address: 0x8Db91622D37Ed433A02B68039EC54bc4bFaDf607 <br>
+             2. Still seeing "Loading..." after installing Metamask? <br>
+             &nbsp;&nbsp;&nbsp;&nbsp;a. Make sure you are signed in to Metamask.<br>
+             &nbsp;&nbsp;&nbsp;&nbsp;b. Make sure you are on the Rinkeby Test Network. <br>
+             &nbsp;&nbsp;&nbsp;&nbsp;c. When in doubt, refresh the page. <br>
+             3. Don't see your updated balance after purchasing CC? <br>
+             &nbsp;&nbsp;&nbsp;&nbsp;a. Check to see if your transaction has been confirmed in Metamask. <br>
+             &nbsp;&nbsp;&nbsp;&nbsp;b. When in doubt, refresh the page. <br>
+             4. ANY REAL ETHEREUM SENT TO THIS CONTRACT WILL BE LOST FOREVER.</p>
+        </div>
+      </div>
+    </div>
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/web3.min.js"></script>
+    <script src="js/truffle-contract.min.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
